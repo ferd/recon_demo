@@ -1,0 +1,13 @@
+{application, council, [
+  {description, "Chatty people to be inspected"},
+  {vsn, "1.0.0"},
+  {registered, []},
+  {applications, [kernel, stdlib, crypto, gproc]},
+  {mod, {council_app, []}},
+  {env, [
+    {names, ["Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf",
+             "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November",
+             "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform",
+             "Victor", "Whiskey", "Xray", "Yankee", "Zulu"]}
+  ]}
+]}.
