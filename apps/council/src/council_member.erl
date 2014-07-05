@@ -110,7 +110,7 @@ server() ->
     {ok, Port} = inet:port(Listen),
     Self = self(),
     Pid = spawn_link(fun() -> connect(Self, Port) end),
-    {ok, Accept} = gen_tcp:accept(Listen),
+    {ok, Accept} = gen_tcp:accept(Listen),
     receive
         {Pid, Connected} ->
             {Listen, Accept, Connected}
