@@ -49,5 +49,5 @@ Each of them will:
 
 ## Running ##
 
-`./_rel/bin/recon_demo`
+`./_rel/recon_demo/bin/recon_demo`
 
