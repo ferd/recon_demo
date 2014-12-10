@@ -40,12 +40,15 @@ Each of them will:
 - Which chatty process is consuming the most bandwidth?
 - Which chatty process sends the most messages over TCP? The least?
 - Can chatty processes message themselves? (can this work with registered names? Do I need to check the chattiest one and see if it messages itself?)
+- If they send messages to themselves, can you make it so they can't without touching code? The opposite?
 - Can you estimate the overall frequency at which messages are sent globally?
 
 
 ## Building ##
 
-`./rebar get-deps compile`
+Assumes you have `rebar` installed somewhere:
+
+`rebar get-deps compile`
 
 ## Running ##
 
