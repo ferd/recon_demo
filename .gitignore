@@ -2,7 +2,7 @@ _rel
 ebin
 erl_crash.dump
 .rebar/
-
+_build/
 *.swp
 *.swo
 *.beam

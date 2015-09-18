@@ -46,11 +46,10 @@ Each of them will:
 
 ## Building ##
 
-Assumes you have `rebar` installed somewhere:
+Assumes you have `rebar3` installed somewhere:
 
-`rebar get-deps compile`
+`rebar3 release`
 
 ## Running ##
 
-`./_rel/recon_demo/bin/recon_demo`
-
+`./_build/default/rel/recon_demo/bin/recon_demo`
