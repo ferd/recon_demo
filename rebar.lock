@@ -1,0 +1,8 @@
+[{<<"gproc">>,
+  {git,"https://github.com/uwiger/gproc.git",
+       {ref,"e0122ae1e88e7922534341e43f3726bd48154106"}},
+  0},
+ {<<"recon">>,
+  {git,"https://github.com/ferd/recon.git",
+       {ref,"0f0c00232c698f0ce0c106178c3e3b3b3da009d8"}},
+  0}].
