@@ -37,8 +37,7 @@ start_link(Name, Members) ->
 %%%===================================================================
 
 init({Name, Members}) ->
-    random_seed(),
-    Rand = random:uniform(10),
+    Rand = rand:uniform(10),
     Verbosity = if Rand =< 2 -> quiet
                  ; Rand =< 6 -> moderate
                  ; Rand =< 9 -> talkative
@@ -66,8 +65,8 @@ handle_cast(Cast, S=#state{name=Name}) ->
 
 handle_info(speak, S=#state{name=Name, members=Members, verbosity=Verbosity}) ->
     Message = message(Verbosity),
-    Target = element(random:uniform(tuple_size(Members)), Members),
-    case random:uniform(2) of
+    Target = element(rand:uniform(tuple_size(Members)), Members),
+    case rand:uniform(2) of
         1 -> % message
             gproc:send({n,l,Target}, {msg, Name, Message});
         2 -> % packet
@@ -94,13 +93,6 @@ code_change(_OldVsn, State, _Extra) ->
 %%%===================================================================
 %%% Internal functions
 %%%===================================================================
-
-%% Seed weak PRNG (random:uniform/1-2) from better source in crypto
-%% that only gives binaries.
--spec random_seed() -> ok.
-random_seed() ->
-    <<A:32, B:32, C:32>> = crypto:rand_bytes(12),
-    random:seed({A,B,C}).
 
 %% Spawn an always-active TCP server, auto-connect to it, and provide
 %% all required ports as a return value.
@@ -143,7 +135,7 @@ message_timer(Level) ->
 %% Shows a message according to verbosity
 -spec message(verbosity()) -> binary().
 message(Level) ->
-    crypto:rand_bytes(msg_size(Level)).
+    crypto:strong_rand_bytes(msg_size(Level)).
 
 -spec interval(verbosity()) -> Milliseconds::non_neg_integer().
 interval(quiet) -> timer:seconds(10);
